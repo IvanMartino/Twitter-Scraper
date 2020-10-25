@@ -75,10 +75,10 @@ FILE_DATA_BASE = 'tweet' #this is the root of the file names for the data we are
 FILE_INFO = '' #summary file
 
 #--
-CONSUMER_KEY = ''
-CONSUMER_SECRET = ''
-ACCESS_TOKEN =  ''
-ACCESS_TOKEN_SECRET =''
+#CONSUMER_KEY = ''
+#CONSUMER_SECRET = ''
+#ACCESS_TOKEN =  ''
+#ACCESS_TOKEN_SECRET =''
 
 
 """
@@ -277,6 +277,13 @@ def main():
     print("Hello,\nhere we create the up to date database of tweets from a list of users.\n")
     setpath()
 
+    keys_file = open("keys.txt")
+    lines = keys_file.readlines()
+    CONSUMER_KEY = lines[0].rstrip()
+    CONSUMER_SECRET = lines[1].rstrip()
+    ACCESS_TOKEN = lines[2].rstrip()
+    ACCESS_TOKEN_SECRET = lines[3].rstrip()
+   
     #we get the keys from the FILE_KEYS
     #CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET=get_keys(FILE_KEYS)
     #we initalize the twitter api
